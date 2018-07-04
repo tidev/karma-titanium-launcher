@@ -1,6 +1,6 @@
 # karma-titanium-launcher
 
-> Run your unit tests inside Titanium
+> Run your unit tests inside Axway Titanium.
 
 ## Installation
 
@@ -46,7 +46,7 @@ You can select the platform you want to test with the `platform` option. This wi
 
 ### Example projects
 
-For an example project that is using this launcher checkout appcelerator/titanium-vdom.
+For an example project that is using this launcher checkout [appcelerator/titanium-vdom](https://github.com/appcelerator/titanium-vdom).
 
 ## Contributions
 
@@ -56,7 +56,7 @@ Open source contributions are greatly appreciated! If you have a bugfix, improve
 ## Getting Help
 
 If you have questions about unit testing your Titanium apps or libraries with Karma, feel free to reach out on Stackoverflow or the
-`#help-me` channel on [TiSlack](http://tislack.org). In case you find a bug related to this library, create a [new issue](/issues/new)
+`#helpme` channel on [TiSlack](http://tislack.org). In case you find a bug related to this library, create a [new issue](https://github.com/appcelerator/karma-titanium-launcher/issues/new)
 or open a [new JIRA ticket](https://jira.appcelerator.org).
 
 ## License
