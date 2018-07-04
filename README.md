@@ -1,4 +1,4 @@
-# karma-chrome-launcher
+# karma-titanium-launcher
 
 > Run your unit tests inside Titanium
 
