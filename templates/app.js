@@ -7,25 +7,26 @@ import clientOptions from './config';
 const win = Ti.UI.createWindow({
 	backgroundColor: '#00aec8'
 });
+const container = Ti.UI.createView({
+	layout: 'vertical',
+	height: Ti.UI.SIZE
+});
 const titleLabel = Ti.UI.createLabel({
 	text: 'Titanium Karma Client',
 	color: 'white',
 	font: {
 		fontSize: 32
 	},
-	center: {
-		y: '48%'
-	}
+	top: 0
 });
-win.add(titleLabel);
+container.add(titleLabel);
 const statusLabel = Ti.UI.createLabel({
 	text: 'Waiting ...',
 	color: '#aee5ed',
-	center: {
-		y: '52%'
-	}
+	top: 10
 });
-win.add(statusLabel);
+container.add(statusLabel);
+win.add(container);
 win.open();
 
 const baseUrl = clientOptions.url;
