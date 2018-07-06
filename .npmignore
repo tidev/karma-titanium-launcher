@@ -1,0 +1,4 @@
+.eslintrc.yml
+data/
+Jenkinsfile
+rollup.config.js
