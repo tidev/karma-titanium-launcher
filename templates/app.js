@@ -2,7 +2,7 @@
 
 import KarmaClient from 'titanium-karma-client';
 
-import clientOptions from './config';
+const clientOptions = __CLIENT_CONFIG__;
 
 const win = Ti.UI.createWindow({
 	backgroundColor: '#00aec8'

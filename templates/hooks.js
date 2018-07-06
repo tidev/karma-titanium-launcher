@@ -7,7 +7,7 @@ exports.init = (logger, config, cli) => {
 			pre: (hookData, done) => {
 				const from = hookData.args[0];
 				if (/Resources\/app\.js$/.test(from)) {
-					hookData.args[0] = '/Users/jvennemann/Development/appc/karma-titanium-launcher/templates/app.js';
+					hookData.args[0] = '__APP_JS__';
 				}
 
 				done();
