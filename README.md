@@ -14,6 +14,8 @@ npm i karma-titanium-launcher -D
 
 This launcher is for testing Titanium apps and libraries. It is typically used in CI to run tests on different platforms. However, it also supports an expirmental rapid TDD setup which allows you to run tests as you write your code.
 
+> ⚠️Currently, only testing Titanium libraries / CommonJS modules is supported. Support for testing Titanium apps and native modules will follow shortly.
+
 ### Configuring this launcher
 
 To configure this launcher you have to create `customLaunchers` and set them in the `browsers` option in your Karma configuration.
@@ -26,7 +28,8 @@ module.exports = config => {
             ios: {
                 base: 'Titanium',
                 browserName: 'iPhone Simulator',
-                platform: 'ios'
+                platform: 'ios',
+                sdkVersion: '7.1.0'
             },
             android: {
                 base: 'Titanium',
@@ -42,7 +45,15 @@ module.exports = config => {
 }
 ```
 
-You can select the platform you want to test with the `platform` option. This will prepare your project for unit testing with Karma and launch the basic `titanium build -p [platform]` command. To further configure the build command you can pass additional arguments using the `flags` options.
+You can select the platform you want to test with the `platform` option. This will prepare your project for unit testing with Karma and launch the basic `titanium build -p [platform]` command.
+
+Please refer to the following table for a full list of available options.
+
+| Name  | Type | Description |
+| --- | --- | --- |
+| `platform`  | String | Specifies the target platform where your unit tests should be run.  |
+| `flags` | Array | Additional flags to pass to the build command. Refer to `titnaium build --help` for a list of available options.  |
+| `sdkVersion` | String | The SDK version used to build the test runner. Defaults to the `<sdk-version>` of your `tiapp.xml` or the currently selected SDK within the `titanium` CLI |
 
 ### Example projects
 
