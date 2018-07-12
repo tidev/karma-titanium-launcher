@@ -1,6 +1,6 @@
 {
   "name": "karma-titanium-launcher",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "description": "A Karma plugin. Launcher for Titanium.",
   "main": "index.js",
   "scripts": {
@@ -14,11 +14,19 @@
   ],
   "author": "Axway Appcelerator",
   "license": "Apache-2.0",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/appcelerator/karma-titanium-launcher.git"
+  },
+  "bugs": {
+    "url": "https://github.com/appcelerator/karma-titanium-launcher/issues"
+  },
+  "homepage": "https://github.com/appcelerator/karma-titanium-launcher#readme",
   "dependencies": {
     "axios": "^0.18.0",
     "extract-zip": "^1.6.7",
     "fs-extra": "^6.0.1",
-    "titanium-karma-client": "^0.2.0",
+    "titanium-karma-client": "^0.2.1",
     "which": "^1.3.1"
   },
   "devDependencies": {
