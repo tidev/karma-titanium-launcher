@@ -29,11 +29,9 @@ container.add(statusLabel);
 win.add(container);
 win.open();
 
-const baseUrl = clientOptions.url;
-
 global.wrappers = {};
 
-const client = new KarmaClient(baseUrl);
+const client = new KarmaClient(clientOptions);
 client.connect();
 client.on('execute', () => statusLabel.text = 'Loading files ...');
 client.on('result', e => statusLabel.text = `Running tests (${e.completed} / ${e.total})`);

@@ -1,12 +1,15 @@
 'use strict';
 
+const fs = require('fs');
+
 exports.id = 'ti.karma';
 exports.init = (logger, config, cli) => {
 	[ 'build.android.copyResource', 'build.ios.copyResource' ].forEach(copyHookName => {
 		cli.on(copyHookName, {
 			pre: (hookData, done) => {
 				const from = hookData.args[0];
-				if (/Resources\/app\.js$/.test(from)) {
+				const appJsPattern = new RegExp(`Resources\/(${cli.argv.platform}\/)?app\.js`);
+				if (appJsPattern.test(from)) {
 					hookData.args[0] = '__APP_JS__';
 				}
 
@@ -40,5 +43,12 @@ exports.init = (logger, config, cli) => {
 		};
 
 		done();
+	});
+
+	cli.on('build.pre.compile', {
+		priority: 99999,
+		post: (_, done) => {
+			fs.symlink('__KARMA_CLIENT_SRC__', '__KARMA_CLIENT_DEST__', done);
+		}
 	});
 };
