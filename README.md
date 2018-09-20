@@ -4,17 +4,21 @@
 
 ## Installation
 
-Simply install this launcher as a dev dependency to your existing project.
-
+Simply install this launcher as a dev dependency to your existing project:
 ```
 npm i karma-titanium-launcher -D
+```
+
+This module also requires the `titanium` CLI to be installed globally in order to create temporary test projects and automatically downloading SDK versions. You can do so with:
+```
+npm i titanium -g
 ```
 
 ## Usage
 
 This launcher is for testing Titanium apps and libraries. It is typically used in CI to run tests on different platforms. However, it also supports an expirmental rapid TDD setup which allows you to run tests as you write your code.
 
-> ⚠️Currently, only testing Titanium libraries / CommonJS modules is supported. Support for testing Titanium apps and native modules will follow shortly.
+> ⚠️ Currently, only testing CommonJS modules is supported. Support for testing Titanium apps and native modules will follow shortly.
 
 ### Configuring this launcher
 
@@ -29,7 +33,7 @@ module.exports = config => {
                 base: 'Titanium',
                 browserName: 'iPhone Simulator',
                 platform: 'ios',
-                sdkVersion: '7.1.0'
+                sdkVersion: '7.4.0.GA'
             },
             android: {
                 base: 'Titanium',
@@ -52,12 +56,12 @@ Please refer to the following table for a full list of available options.
 | Name  | Type | Description |
 | --- | --- | --- |
 | `platform`  | String | Specifies the target platform where your unit tests should be run.  |
-| `flags` | Array | Additional flags to pass to the build command. Refer to `titnaium build --help` for a list of available options.  |
+| `flags` | Array | Additional flags to pass to the build command. Refer to `titanium build --help` for a list of available options.  |
 | `sdkVersion` | String | The SDK version used to build the test runner. Defaults to the `<sdk-version>` of your `tiapp.xml` or the currently selected SDK within the `titanium` CLI |
 
 ### Example projects
 
-For an example project that is using this launcher checkout [appcelerator/titanium-vdom](https://github.com/appcelerator/titanium-vdom).
+For example projects that are using this launcher checkout [appcelerator/titanium-vdom](https://github.com/appcelerator/titanium-vdom) or [appcelerator/titanized](https://github.com/appcelerator/titanized).
 
 ## Contributions
 
