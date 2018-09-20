@@ -20,6 +20,8 @@ This launcher is for testing Titanium apps and libraries. It is typically used i
 
 > ⚠️ Currently, only testing CommonJS modules is supported. Support for testing Titanium apps and native modules will follow shortly.
 
+> ⚠️ Due to issues in our iOS runtime, unit testing with Karma is currently not possible. But don't worry, we alredy adressed those issues and you can enable your iOS custom launchers once 7.5.0 is out!
+
 ### Configuring this launcher
 
 To configure this launcher you have to create `customLaunchers` and set them in the `browsers` option in your Karma configuration.
@@ -29,11 +31,12 @@ module.exports = config => {
     config.set({
         // ...
         customLaunchers: {
+            // testing on iOS needs TIMOB-26184 and TIMOB-26179, which are included in 7.5.0
             ios: {
                 base: 'Titanium',
                 browserName: 'iPhone Simulator',
                 platform: 'ios',
-                sdkVersion: '7.4.0.GA'
+                sdkVersion: '7.5.0.GA'
             },
             android: {
                 base: 'Titanium',
@@ -41,10 +44,11 @@ module.exports = config => {
                 platform: 'android',
                 flags: [
                     '--device-id', 'Nexus_5X_API_27'
-                ]
+                ],
+                sdkVersion: '7.4.0.GA'
             }
         },
-        browsers: ['ios', 'android']
+        browsers: ['android']
     });
 }
 ```
