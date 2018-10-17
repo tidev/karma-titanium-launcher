@@ -1,5 +1,7 @@
 # karma-titanium-launcher
 
+[![Greenkeeper badge](https://badges.greenkeeper.io/appcelerator/karma-titanium-launcher.svg)](https://greenkeeper.io/)
+
 > Run your unit tests inside Axway Titanium.
 
 ## Installation
