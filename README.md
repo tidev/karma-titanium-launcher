@@ -18,11 +18,7 @@ npm i titanium -g
 
 ## Usage
 
-This launcher is for testing Titanium apps and libraries. It is typically used in CI to run tests on different platforms. However, it also supports an expirmental rapid TDD setup which allows you to run tests as you write your code.
-
-> ⚠️ Currently, only testing CommonJS modules is supported. Support for testing Titanium apps and native modules will follow shortly.
-
-> ⚠️ Due to issues in our iOS runtime, unit testing with Karma is currently not possible. But don't worry, we alredy adressed those issues and you can enable your iOS custom launchers once 7.5.0 is out!
+This launcher is for testing Titanium apps and native modules as well as plain JS libraries intended to run inside the Titanium runtime. It is typically used in CI to run tests on different platforms. However, it also supports an expirmental rapid TDD setup which allows you to run tests as you write your code.
 
 ### Configuring this launcher
 
@@ -33,7 +29,6 @@ module.exports = config => {
     config.set({
         // ...
         customLaunchers: {
-            // testing on iOS needs TIMOB-26184 and TIMOB-26179, which are included in 7.5.0
             ios: {
                 base: 'Titanium',
                 browserName: 'iPhone Simulator',
@@ -46,11 +41,10 @@ module.exports = config => {
                 platform: 'android',
                 flags: [
                     '--device-id', 'Nexus_5X_API_27'
-                ],
-                sdkVersion: '7.4.0.GA'
+                ]
             }
         },
-        browsers: ['android']
+        browsers: ['android', 'ios']
     });
 }
 ```
@@ -63,7 +57,7 @@ Please refer to the following table for a full list of available options.
 | --- | --- | --- |
 | `platform`  | String | Specifies the target platform where your unit tests should be run.  |
 | `flags` | Array | Additional flags to pass to the build command. Refer to `titanium build --help` for a list of available options.  |
-| `sdkVersion` | String | The SDK version used to build the test runner. Defaults to the `<sdk-version>` of your `tiapp.xml` or the currently selected SDK within the `titanium` CLI |
+| `sdkVersion` | String | The SDK version used to build the test runner. Defaults to the `<sdk-version>` of your `tiapp.xml` (only in app projects) or the currently selected SDK within the `titanium` CLI (check `ti sdk list`) |
 
 ### Example projects
 
