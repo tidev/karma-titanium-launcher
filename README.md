@@ -24,7 +24,7 @@ This launcher is for testing Titanium apps and native modules as well as plain J
 
 To configure this launcher you have to create `customLaunchers` and set them in the `browsers` option in your Karma configuration.
 
-```
+```js
 module.exports = config => {
     config.set({
         // ...
@@ -57,6 +57,24 @@ Please refer to the following table for a full list of available options.
 | --- | --- | --- |
 | `platform`  | String | Specifies the target platform where your unit tests should be run.  |
 | `flags` | Array | Additional flags to pass to the build command. Refer to `titanium build --help` for a list of available options.  |
+| `sdkVersion` | String | The SDK version used to build the test runner. Defaults to the `<sdk-version>` of your `tiapp.xml` (only in app projects) or the currently selected SDK within the `titanium` CLI (check `ti sdk list`) |
+
+You can also set certain global options that apply to all custom launchers you configure. Global options can be overridden by the individual launcher configuration.
+
+```js
+module.exports = config => {
+    config.set({
+        titanium: {
+            sdkVersion: '7.5.0.GA'
+        }
+    });
+};
+```
+
+Supported global options:
+
+| Name  | Type | Description |
+| --- | --- | --- |
 | `sdkVersion` | String | The SDK version used to build the test runner. Defaults to the `<sdk-version>` of your `tiapp.xml` (only in app projects) or the currently selected SDK within the `titanium` CLI (check `ti sdk list`) |
 
 ### Example projects
