@@ -79,7 +79,7 @@ Supported global options:
 
 ### Example projects
 
-For example projects that are using this launcher checkout [appcelerator/titanium-vdom](https://github.com/appcelerator/titanium-vdom) or [appcelerator/titanized](https://github.com/appcelerator/titanized).
+For example projects that are using this launcher checkout [appcelerator/titanium-vdom](https://github.com/appcelerator/titanium-vdom), [appcelerator/titanized](https://github.com/appcelerator/titanized) or the [titanium-socketio](https://github.com/appcelerator-modules/titanium-socketio) native module.
 
 ## Contributions
 
