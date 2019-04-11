@@ -33,7 +33,7 @@ module.exports = config => {
                 base: 'Titanium',
                 browserName: 'iPhone Simulator',
                 platform: 'ios',
-                sdkVersion: '7.5.0.GA'
+                sdkVersion: '8.0.0.GA'
             },
             android: {
                 base: 'Titanium',
@@ -65,7 +65,7 @@ You can also set certain global options that apply to all custom launchers you c
 module.exports = config => {
     config.set({
         titanium: {
-            sdkVersion: '7.5.0.GA'
+            sdkVersion: '8.0.0.GA'
         }
     });
 };
