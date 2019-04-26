@@ -1,6 +1,6 @@
 {
   "name": "karma-titanium-launcher",
-  "version": "0.5.6",
+  "version": "0.6.0",
   "description": "A Karma plugin. Launcher for Axway Titanium.",
   "main": "index.js",
   "scripts": {
