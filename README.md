@@ -7,12 +7,14 @@
 ## Installation
 
 Simply install this launcher as a dev dependency to your existing project:
-```
+
+```bash
 npm i karma-titanium-launcher -D
 ```
 
 This module also requires the `titanium` CLI to be installed globally in order to create temporary test projects and automatically downloading SDK versions. You can do so with:
-```
+
+```bash
 npm i titanium -g
 ```
 
