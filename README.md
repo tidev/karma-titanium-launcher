@@ -16,6 +16,8 @@ This module also requires the `titanium` CLI to be installed globally in order t
 npm i titanium -g
 ```
 
+> 💡 iOS Testing Note: Version 0.7.0+ of this launcher requires Xcode 10.2 / Swift 5+. If you're still on Swift 4 use version 0.6.0 of this launcher.
+
 ## Usage
 
 This launcher is for testing Titanium apps and native modules as well as plain JS libraries intended to run inside the Titanium runtime. It is typically used in CI to run tests on different platforms. However, it also supports an expirmental rapid TDD setup which allows you to run tests as you write your code.
