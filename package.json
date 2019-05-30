@@ -23,7 +23,7 @@
   },
   "homepage": "https://github.com/appcelerator/karma-titanium-launcher#readme",
   "dependencies": {
-    "axios": "^0.18.0",
+    "axios": "^0.19.0",
     "extract-zip": "^1.6.7",
     "fs-extra": "^7.0.0",
     "node-titanium-sdk": "^3.1.2",
