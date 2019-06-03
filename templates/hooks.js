@@ -1,7 +1,6 @@
 'use strict';
 
 const fs = require('fs');
-const ti = require('node-titanium-sdk');
 
 exports.id = 'ti.karma';
 exports.init = (logger, config, cli) => {
@@ -24,6 +23,9 @@ exports.init = (logger, config, cli) => {
 		// from overriding the already existing tiapp property on our cli object.
 		// This allows us to change the tiapp properties from Karma without having
 		// to touch the project's tiapp.xml on disk.
+		const modulePath = require.resolve('node-titanium-sdk', { paths: [ cli.env.getSDK().path ] });
+		// eslint-disable-next-line security/detect-non-literal-require
+		const ti = require(modulePath);
 		let tiapp = cli.tiapp;
 		Object.defineProperty(cli, 'tiapp', {
 			get: () => {
