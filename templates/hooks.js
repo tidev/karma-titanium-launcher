@@ -1,6 +1,7 @@
 'use strict';
 
 const fs = require('fs');
+const ti = require('node-titanium-sdk');
 
 exports.id = 'ti.karma';
 exports.init = (logger, config, cli) => {
@@ -8,7 +9,7 @@ exports.init = (logger, config, cli) => {
 		cli.on(copyHookName, {
 			pre: (hookData, done) => {
 				const from = hookData.args[0];
-				const appJsPattern = new RegExp(`Resources\/(${cli.argv.platform}\/)?app\.js`);
+				const appJsPattern = new RegExp(`Resources/(${cli.argv.platform}/)?app.js`);
 				if (appJsPattern.test(from)) {
 					hookData.args[0] = '__APP_JS__';
 				}
@@ -19,28 +20,38 @@ exports.init = (logger, config, cli) => {
 	});
 
 	cli.on('cli:pre-validate', (_, done) => {
-		// This would be the expected approach but tiapp will be overridden
-		// in the project-dir option callback, see below.
-		// cli.tiapp.transpile = true;
+		// This is a really ugly hack to prevent the project-dir option callback
+		// from overriding the already existing tiapp property on our cli object.
+		// This allows us to change the tiapp properties from Karma without having
+		// to touch the project's tiapp.xml on disk.
+		let tiapp = cli.tiapp;
+		Object.defineProperty(cli, 'tiapp', {
+			get: () => {
+				return tiapp;
+			},
+			set: () => {}
+		});
 
-		// Patch the project-dir option callback of the build command because it re-parses tiapp.xml
-		const originalProjectDirCallback = cli.command.options['project-dir'].callback;
-		cli.command.options['project-dir'].callback = function (projectDir) {
-			originalProjectDirCallback.call(null, projectDir);
+		cli.tiapp.transpile = true;
 
-			cli.tiapp.transpile = true;
-
-			const targetPlatform = cli.argv.platform;
-			const socketIoRegistered = cli.tiapp.modules.some(moduleInfo => {
-				return moduleInfo.id === 'ti.socketio' && moduleInfo.platform === targetPlatform;
-			});
-			if (!socketIoRegistered) {
-				cli.tiapp.modules.push({
-					id: 'ti.socketio',
-					platform: targetPlatform
-				});
+		if (__SDK_VERSION_OVERRIDE__) {
+			cli.tiapp['sdk-version'] = '__SDK_VERSION__';
+			// check that the Titanium SDK version is correct
+			if (!ti.validateCorrectSDK(logger, config, cli, 'build')) {
+				throw new cli.GracefulShutdown();
 			}
-		};
+		}
+
+		const targetPlatform = cli.argv.platform;
+		const socketIoRegistered = cli.tiapp.modules.some(moduleInfo => {
+			return moduleInfo.id === 'ti.socketio' && moduleInfo.platform === targetPlatform;
+		});
+		if (!socketIoRegistered) {
+			cli.tiapp.modules.push({
+				id: 'ti.socketio',
+				platform: targetPlatform
+			});
+		}
 
 		done();
 	});
