@@ -59,7 +59,12 @@ exports.init = (logger, config, cli) => {
 	cli.on('build.pre.compile', {
 		priority: 99999,
 		post: (_, done) => {
-			fs.symlink('__KARMA_CLIENT_SRC__', '__KARMA_CLIENT_DEST__', done);
+			const karmaClientDestPath = '__KARMA_CLIENT_DEST__';
+			if (fs.existsSync(karmaClientDestPath)) {
+				return done();
+			}
+
+			fs.symlink('__KARMA_CLIENT_SRC__', karmaClientDestPath, done);
 		}
 	});
 };
