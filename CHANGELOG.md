@@ -1,3 +1,12 @@
+## [0.7.6](https://github.com/appcelerator/karma-titanium-launcher/compare/0.7.5...0.7.6) (2020-02-05)
+
+
+### Bug Fixes
+
+* shim environment for karma-jasmine v3+ ([#48](https://github.com/appcelerator/karma-titanium-launcher/issues/48)) ([6492365](https://github.com/appcelerator/karma-titanium-launcher/commit/6492365))
+
+
+
 ## [0.7.5](https://github.com/appcelerator/karma-titanium-launcher/compare/0.7.4...0.7.5) (2019-09-05)
 
 
