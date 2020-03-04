@@ -1,3 +1,12 @@
+## [0.7.7](https://github.com/appcelerator/karma-titanium-launcher/compare/0.7.6...0.7.7) (2020-03-04)
+
+
+### Bug Fixes
+
+* correctly handle windows paths ([#50](https://github.com/appcelerator/karma-titanium-launcher/issues/50)) ([6d128ea](https://github.com/appcelerator/karma-titanium-launcher/commit/6d128ea3e88487074b2d447a63dd7c6242b8cc79))
+
+
+
 ## [0.7.6](https://github.com/appcelerator/karma-titanium-launcher/compare/0.7.5...0.7.6) (2020-02-05)
 
 
