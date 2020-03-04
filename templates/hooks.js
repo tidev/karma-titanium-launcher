@@ -8,7 +8,8 @@ exports.init = (logger, config, cli) => {
 		cli.on(copyHookName, {
 			pre: (hookData, done) => {
 				const from = hookData.args[0];
-				const appJsPattern = new RegExp(`Resources/(${cli.argv.platform}/)?app.js`);
+				const sep = process.platform === 'win32' ? '\\\\' : '/';
+				const appJsPattern = new RegExp(`Resources${sep}(${cli.argv.platform}${sep})?app.js`);
 				if (appJsPattern.test(from)) {
 					hookData.args[0] = '__APP_JS__';
 				}
