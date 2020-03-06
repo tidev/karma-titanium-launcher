@@ -1,3 +1,12 @@
+## [0.7.8](https://github.com/appcelerator/karma-titanium-launcher/compare/0.7.7...0.7.8) (2020-03-06)
+
+
+### Bug Fixes
+
+* improve android emulator detection ([#51](https://github.com/appcelerator/karma-titanium-launcher/issues/51)) ([c494901](https://github.com/appcelerator/karma-titanium-launcher/commit/c494901843f800e1101544152899156508c885fd))
+
+
+
 ## [0.7.7](https://github.com/appcelerator/karma-titanium-launcher/compare/0.7.6...0.7.7) (2020-03-04)
 
 
