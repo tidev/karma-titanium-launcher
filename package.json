@@ -27,7 +27,7 @@
     "axios": "^0.20.0",
     "extract-zip": "^1.6.7",
     "fs-extra": "^9.0.1",
-    "node-titanium-sdk": "^4.3.0",
+    "node-titanium-sdk": "^5.1.1",
     "titanium-karma-client": "^0.2.6",
     "which": "^2.0.2"
   },
