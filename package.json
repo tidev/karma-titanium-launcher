@@ -33,6 +33,6 @@
   },
   "devDependencies": {
     "eslint": "^7.10.0",
-    "eslint-config-axway": "^5.0.0"
+    "eslint-config-axway": "^6.0.0"
   }
 }
