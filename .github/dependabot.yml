@@ -3,15 +3,7 @@ updates:
 - package-ecosystem: npm
   directory: "/"
   schedule:
-    interval: daily
-    time: "10:00"
+    interval: weekly
   open-pull-requests-limit: 10
   reviewers:
   - janvennemann
-  ignore:
-  - dependency-name: eslint
-    versions:
-    - 7.21.0
-  - dependency-name: extract-zip
-    versions:
-    - 2.0.1
