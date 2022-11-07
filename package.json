@@ -29,7 +29,7 @@
     "fs-extra": "^10.1.0",
     "node-titanium-sdk": "^5.1.6",
     "titanium-karma-client": "^0.2.6",
-    "which": "^2.0.2"
+    "which": "^3.0.0"
   },
   "devDependencies": {
     "eslint": "^8.19.0",
